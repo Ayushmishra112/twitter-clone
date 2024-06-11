@@ -2,7 +2,7 @@ import axios from "axios";
 import { USER_API } from "../utilities/Endpoints";
 import { useEffect } from "react";
 import {useDispatch} from "react-redux";
-import {  getOtherUsers } from "../redux/userslice";
+import { getOtherUsers } from "../redux/userslice";
 
 const useOtherUsers = (id) => {
     const dispatch = useDispatch();
@@ -13,7 +13,7 @@ const useOtherUsers = (id) => {
                     withCredentials:true
                 });
                 console.log(res);
-                dispatch(getOtherUsers(res.data.otherUsers));
+                dispatch(getOtherUsers(res.data.strangers));
             } catch (error) {
                 console.log(error);
             }

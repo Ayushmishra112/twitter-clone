@@ -16,7 +16,7 @@ const Body = () => {
                     element: <Feed/> 
                 },
                 {
-                    path:"/Profile",
+                    path:"/Profile/:id",
                     element: <Profile/> 
                 }
             ]

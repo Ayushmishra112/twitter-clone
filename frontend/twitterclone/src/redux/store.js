@@ -4,7 +4,10 @@ import tweetslice from "./tweetslice";
 
 const store = configureStore({
     reducer: {
-       user:userslice 
+        //user slice
+       user:userslice,
+       //tweet slice
+       tweet:tweetslice
     }
 });
 

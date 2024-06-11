@@ -18,7 +18,7 @@ const CreatePost = () => {
         <div >
             <div className='flex items-center p-4'>
             <div>
-            <Avatar googleId="118096717852922241760" size="40" round={true} />
+            <Avatar src='https://wallpapers.com/images/hd/anime-pfp-sad-boy-40s0vjfpa8vt3ou3.jpg' size="40" round={true} />
             </div>
             <input className='w-full outline-none border-none text-xl ml-2' type="text" placeholder='What is happening!?'/>
             </div>

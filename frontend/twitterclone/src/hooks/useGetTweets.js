@@ -1,17 +1,17 @@
 import axios from "axios";
-import { TWEET_API_END_POINT } from "../utils/constant";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllTweets } from "../redux/tweetslice";
+import { TWEET_API } from "../utilities/Endpoints";
 
-const useGetMyTweets = (id) => {
+const useGetTweets = (id) => {
     const dispatch = useDispatch();
     const { refresh, isActive } = useSelector(store => store.tweet);
     
 
-    const fetchMyTweets = async () => {
+    const fetchTweets = async () => {
         try {
-            const res = await axios.get(`${TWEET_API_END_POINT}/alltweets/${id}`, {
+            const res = await axios.get(`${TWEET_API}/alltweets/${id}`, {
                 withCredentials: true
             });
             console.log(res);
@@ -23,7 +23,7 @@ const useGetMyTweets = (id) => {
     const followingTweetHandler = async () => { 
         try {
             axios.defaults.withCredentials = true;
-            const res = await axios.get(`${TWEET_API_END_POINT}/followingtweets/${id}`);
+            const res = await axios.get(`${TWEET_API}/followingtweets/${id}`);
             console.log(res);
             dispatch(getAllTweets(res.data.tweets));
         } catch (error) {
@@ -33,10 +33,10 @@ const useGetMyTweets = (id) => {
 
     useEffect(() => {
         if(isActive){
-            fetchMyTweets();
+            fetchTweets();
         }else{
             followingTweetHandler();
         }
     }, [isActive,refresh]);
 };
-export default useGetMyTweets;
+export default useGetTweets;

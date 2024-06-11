@@ -17,28 +17,42 @@ const RightSidebar = ({ otherUsers }) => {
         </div>
         <div className="p-4 bg-gray-100 rounded-2xl my-4">
           <h1 className="font-bold text-lg">Who to follow</h1>
-          {otherUsers?.map((user) => (
-            <div key={user?._id} className='flex items-center justify-between my-3'>
-              <div className='flex'>
+          {otherUsers?.map((user) => {
+            return (
+              <div
+                key={user?._id}
+                className="flex items-center justify-between my-3"
+              >
+                <div className="flex">
+                  <div>
+                    <Avatar
+                      src={
+                        user?.avatarUrl ||
+                        "https://wallpapers.com/images/hd/anime-pfp-sad-boy-40s0vjfpa8vt3ou3.jpg"
+                      }
+                      size="40"
+                      round={true}
+                    />
+                  </div>
+                  <div className="ml-2">
+                    <h1 className="font-bold">{user?.name}</h1>
+                    <p className="text-sm">{`@${user?.username}`}</p>
+                  </div>
+                </div>
                 <div>
-                  <Avatar src={user?.avatarUrl || "https://wallpapers.com/images/hd/anime-pfp-sad-boy-40s0vjfpa8vt3ou3.jpg"} size="40" round={true} />
-                </div>
-                <div className='ml-2'>
-                  <h1 className='font-bold'>{user?.name}</h1>
-                  <p className='text-sm'>{`@${user?.username}`}</p>
+                  <Link to={`/profile/${user?._id}`}>
+                    <button className="px-4 py-1 bg-black text-white rounded-full">
+                      Profile
+                    </button>
+                  </Link>
                 </div>
               </div>
-              <div>
-                <Link to={`/profile/${user?._id}`}>
-                  <button className='px-4 py-1 bg-black text-white rounded-full'>Profile</button>
-                </Link>
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </div>
   );
-}
+};
 
 export default RightSidebar;

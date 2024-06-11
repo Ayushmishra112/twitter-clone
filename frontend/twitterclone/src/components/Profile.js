@@ -10,7 +10,7 @@ const Profile = () => {
   const { id } = useParams();
     useGetProfile(id);
     //HOOKS
-    ;
+    
 
   return (
     <div className="w-[50%] border-l border-r border-gray-200">

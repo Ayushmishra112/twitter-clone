@@ -9,7 +9,7 @@ function Tweet() {
     <div className='border-b border-gray-200'>
         <div>
          <div className='flex p-4'>
-            <Avatar googleId="118096717852922241760" size="40" round={true} />
+            <Avatar src="https://wallpapers.com/images/hd/anime-pfp-sad-boy-40s0vjfpa8vt3ou3.jpg" size="40" round={true} />
               
             <div className='ml-2 w-full'>
             <div className='flex items-center ml-2'>
