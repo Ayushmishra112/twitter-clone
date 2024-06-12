@@ -4,7 +4,7 @@ import { FaRegComment } from "react-icons/fa";
 import { MdOutlineDeleteOutline } from "react-icons/md";
 import { CiHeart } from "react-icons/ci";
 import { CiBookmark } from "react-icons/ci";
-function Tweet() {
+function Tweet({tweet}) {
   return (
     <div className='border-b border-gray-200'>
         <div>
@@ -13,18 +13,18 @@ function Tweet() {
               
             <div className='ml-2 w-full'>
             <div className='flex items-center ml-2'>
-                <h1 className='font-bold'>Ayush</h1>
-                <p className='text'>@luckycharmer . 1m</p>
+                <h1 className='font-bold'>{tweet?.userDetails[0].name}</h1>
+                <p className='text'>`@{tweet?.userDetails[0].username}  . 1m`</p>
             </div>
             <div>
-                <p>Hello developers let's connect.</p>
+                <p>{tweet?.description}</p>
             </div>
             <div className='flex justify-between my-3'>
             <div className='flex items-center'>
                 <div className='p-2 hover:bg-green-200 rounded-full cursor-pointer'>
                   <FaRegComment size="20px" />
                 </div>
-                <p>0</p>
+                <p>{tweet?.like?.length}</p>
             </div>
                 <div className='flex items-center'>
                 <div className='p-2 hover:bg-pink-200 rounded-full cursor-pointer'>
